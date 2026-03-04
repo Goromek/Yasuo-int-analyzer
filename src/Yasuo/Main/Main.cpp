@@ -6,27 +6,44 @@
 
 using namespace std;
 
-struct playerData {
+struct PlayerData {
 	int kills,deaths,assists,goldDiff15,visionScore,damageScore;
+
+	double kda() const {
+		int safeDeaths = deaths == 0 ? 1 : deaths;
+		return static_cast<double>(kills + assists) / safeDeaths;
+	}
 };
+int intCalc(const PlayerData &p) {
+	int score=0;
+
+	if (p.deaths > 6) score += 4;
+	if (p.goldDiff15 < -500) score += 5;
+	if (p.visionScore < 15) score += 4;
+	if (p.damageScore <15) score += 5;
+
+	if (p.kda() < 1.5) score += 3;
+
+	return score;
+}
+
 
  
 int main()
 {
-
-
 	cout << "Yasuo-int-analyzer" << endl;
 	string line;
 	ifstream data("../../../data/sample1.csv");
 	if (!data.is_open()) {
-		cout << "Error opening file\n";
+		cout << "Error opening file" << endl;;
 		return 1;
 	}
 	getline(data, line);
-	vector<playerData> players;
-	playerData p;
+	vector<PlayerData> players;
+	
 
 	while (getline(data, line)) {
+		PlayerData p;
 		if (line.empty()) {
 			continue;
 		}
@@ -44,8 +61,42 @@ int main()
 		players.push_back(p);
 	}
 	data.close();
-	cout << "Loaded players: " << players.size() << endl;
-	cout << p.kills << " " << p.deaths << " " << p.assists << " " << p.goldDiff15 << " " << p.visionScore << " " << p.damageScore << endl;
+
+	int totalScore = 0;
+	int certifiedInt = 0;
+	
+	cout << "Loaded players: " << players.size() << endl << endl;
+	
+	for (int i = 0; i < players.size(); i++) {
+
+		cout << "Loading player number: " << i+1 << endl;
+		cout << players[i].kills << " " << players[i].deaths << " " << players[i].assists << " " << players[i].goldDiff15 << " " << players[i].visionScore << " " << players[i].damageScore << endl;
+		
+		int score = intCalc(players[i]);
+		cout << "Int score is equal to: " << score << endl;
+		
+		if (score >= 10){
+			cout << "Certified 0/10 Power Spike" << endl;
+			certifiedInt++;
+		}
+		else if (score >= 5){
+			cout << "Suspicious" << endl;
+		}
+		else{
+			cout << "Playable" << endl;
+		}
+		totalScore += score;
+		cout << endl << endl;
+	}
+	cout << endl << endl;
+
+	if (players.empty()) {
+		cout << "No players loaded. Cannot calculate statistics." << endl;
+		return 0;
+	}
+	cout << "Averge int score in database is equal to: " << double(totalScore) / players.size() << endl;
+	cout << "Certified inters in database: " << certifiedInt << endl;
+	
 
 	return 0;
 
