@@ -6,6 +6,7 @@
 
 using namespace std;
 
+//Structure with all player data
 struct PlayerData {
 	int kills,deaths,assists,goldDiff15,visionScore,damageScore;
 
@@ -14,6 +15,7 @@ struct PlayerData {
 		return static_cast<double>(kills + assists) / safeDeaths;
 	}
 };
+//Int score calculator (higher score=more inting)
 int intCalc(const PlayerData &p) {
 	int score=0;
 
@@ -41,7 +43,7 @@ int main()
 	getline(data, line);
 	vector<PlayerData> players;
 	
-
+	//Adding data to specific player
 	while (getline(data, line)) {
 		PlayerData p;
 		if (line.empty()) {
@@ -60,13 +62,20 @@ int main()
 
 		players.push_back(p);
 	}
+
 	data.close();
+	
+	if (players.empty()) {
+		cout << "No players loaded. Cannot calculate statistics." << endl;
+		return 0;
+	}
 
 	int totalScore = 0;
 	int certifiedInt = 0;
 	
 	cout << "Loaded players: " << players.size() << endl << endl;
 	
+	//Printing data about players
 	for (int i = 0; i < players.size(); i++) {
 
 		cout << "Loading player number: " << i+1 << endl;
@@ -89,11 +98,6 @@ int main()
 		cout << endl << endl;
 	}
 	cout << endl << endl;
-
-	if (players.empty()) {
-		cout << "No players loaded. Cannot calculate statistics." << endl;
-		return 0;
-	}
 	cout << "Averge int score in database is equal to: " << double(totalScore) / players.size() << endl;
 	cout << "Certified inters in database: " << certifiedInt << endl;
 	
