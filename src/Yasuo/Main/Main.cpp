@@ -3,6 +3,7 @@
 #include <fstream>
 #include <string>
 #include <sstream>
+#include <algorithm>
 
 using namespace std;
 
@@ -14,6 +15,11 @@ struct PlayerData {
 		int safeDeaths = deaths == 0 ? 1 : deaths;
 		return static_cast<double>(kills + assists) / safeDeaths;
 	}
+};
+struct Result {
+	PlayerData player;
+	int pScore;
+
 };
 //Int score calculator (higher score=more inting)
 int intCalc(const PlayerData &p) {
@@ -28,30 +34,29 @@ int intCalc(const PlayerData &p) {
 
 	return score;
 }
-
-
- 
-int main()
+vector<PlayerData> loadPlayers(const string& filename)
 {
-	cout << "Yasuo-int-analyzer" << endl;
-	string line;
-	ifstream data("../../../data/sample1.csv");
-	if (!data.is_open()) {
-		cout << "Error opening file" << endl;;
-		return 1;
-	}
-	getline(data, line);
 	vector<PlayerData> players;
-	
-	//Adding data to specific player
+	string line;
+
+	ifstream data(filename);
+
+	if (!data.is_open()) {
+		cout << "Error opening file\n";
+		return players;
+	}
+
+	getline(data, line);
+
 	while (getline(data, line)) {
-		PlayerData p;
-		if (line.empty()) {
+
+		if (line.empty())
 			continue;
-		}
+
+		PlayerData p;
+
 		stringstream ss(line);
 		string value;
-		
 
 		getline(ss, value, ','); p.kills = stoi(value);
 		getline(ss, value, ','); p.deaths = stoi(value);
@@ -63,14 +68,26 @@ int main()
 		players.push_back(p);
 	}
 
-	data.close();
+	return players;
+}
+
+
+ 
+int main()
+{
+	cout << "Yasuo-int-analyzer" << endl;
+	
+
+   vector<PlayerData> players = loadPlayers("../../../data/sample1.csv");
+
 	
 	if (players.empty()) {
 		cout << "No players loaded. Cannot calculate statistics." << endl;
 		return 0;
 	}
+	vector<Result> results;
 
-	int totalScore = 0;
+	long int totalScore = 0;
 	int certifiedInt = 0;
 	
 	cout << "Loaded players: " << players.size() << endl << endl;
@@ -82,6 +99,14 @@ int main()
 		cout << players[i].kills << " " << players[i].deaths << " " << players[i].assists << " " << players[i].goldDiff15 << " " << players[i].visionScore << " " << players[i].damageScore << endl;
 		
 		int score = intCalc(players[i]);
+		totalScore += score;
+		Result r;
+		r.player = players[i];
+		r.pScore = score;
+
+		results.push_back(r);
+
+
 		cout << "Int score is equal to: " << score << endl;
 		
 		if (score >= 10){
@@ -94,12 +119,24 @@ int main()
 		else{
 			cout << "Playable" << endl;
 		}
-		totalScore += score;
 		cout << endl << endl;
 	}
+
+	sort(results.begin(), results.end(),
+		[](const Result& a, const Result& b) {
+			return a.pScore > b.pScore;
+		});
 	cout << endl << endl;
 	cout << "Averge int score in database is equal to: " << double(totalScore) / players.size() << endl;
-	cout << "Certified inters in database: " << certifiedInt << endl;
+	cout << "Certified inters in database: " << certifiedInt << endl << endl;;
+	
+
+	cout << "Top 3 inters:" << endl;;
+
+	for (size_t i = 0; i < 3 && i < results.size(); i++) {
+
+		cout << "#" << i + 1 << " Score: " << results[i].pScore << " KDA: " << results[i].player.kda() << endl;
+	}
 	
 
 	return 0;
