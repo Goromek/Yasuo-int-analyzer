@@ -7,6 +7,14 @@
       "RelativeMoniker": "D:0:0:{064291CA-0B0E-47CC-B580-6E3B716F6F44}|Main\\Main.vcxproj|solutionrelative:Main\\Main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{064291CA-0B0E-47CC-B580-6E3B716F6F44}|Main\\Main.vcxproj|C:\\Users\\Gorom\\Desktop\\programowanie-projekty\\Yasuo-int-analyzer\\src\\Yasuo\\Main\\output.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{064291CA-0B0E-47CC-B580-6E3B716F6F44}|Main\\Main.vcxproj|solutionrelative:Main\\output.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{064291CA-0B0E-47CC-B580-6E3B716F6F44}|Main\\Main.vcxproj|C:\\Users\\Gorom\\Desktop\\programowanie-projekty\\Yasuo-int-analyzer\\src\\Yasuo\\Main\\output.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{064291CA-0B0E-47CC-B580-6E3B716F6F44}|Main\\Main.vcxproj|solutionrelative:Main\\output.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{064291CA-0B0E-47CC-B580-6E3B716F6F44}|Main\\Main.vcxproj|C:\\Users\\Gorom\\Desktop\\programowanie-projekty\\Yasuo-int-analyzer\\src\\Yasuo\\Main\\analysis.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{064291CA-0B0E-47CC-B580-6E3B716F6F44}|Main\\Main.vcxproj|solutionrelative:Main\\analysis.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -32,7 +40,7 @@
               "RelativeDocumentMoniker": "Main\\Main.cpp",
               "ToolTip": "C:\\Users\\Gorom\\Desktop\\programowanie-projekty\\Yasuo-int-analyzer\\src\\Yasuo\\Main\\Main.cpp",
               "RelativeToolTip": "Main\\Main.cpp",
-              "ViewState": "AgIAADMAAAAAAAAAAAAAAFEAAAACAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2026-03-02T18:17:45.709Z",
               "IsPinned": true,
@@ -40,7 +48,33 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "output.cpp",
+              "DocumentMoniker": "C:\\Users\\Gorom\\Desktop\\programowanie-projekty\\Yasuo-int-analyzer\\src\\Yasuo\\Main\\output.cpp",
+              "RelativeDocumentMoniker": "Main\\output.cpp",
+              "ToolTip": "C:\\Users\\Gorom\\Desktop\\programowanie-projekty\\Yasuo-int-analyzer\\src\\Yasuo\\Main\\output.cpp",
+              "RelativeToolTip": "Main\\output.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-03-18T18:36:03.753Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "output.h",
+              "DocumentMoniker": "C:\\Users\\Gorom\\Desktop\\programowanie-projekty\\Yasuo-int-analyzer\\src\\Yasuo\\Main\\output.h",
+              "RelativeDocumentMoniker": "Main\\output.h",
+              "ToolTip": "C:\\Users\\Gorom\\Desktop\\programowanie-projekty\\Yasuo-int-analyzer\\src\\Yasuo\\Main\\output.h",
+              "RelativeToolTip": "Main\\output.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-03-18T18:35:52.787Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "analysis.cpp",
               "DocumentMoniker": "C:\\Users\\Gorom\\Desktop\\programowanie-projekty\\Yasuo-int-analyzer\\src\\Yasuo\\Main\\analysis.cpp",
               "RelativeDocumentMoniker": "Main\\analysis.cpp",
@@ -53,7 +87,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "analysis.h",
               "DocumentMoniker": "C:\\Users\\Gorom\\Desktop\\programowanie-projekty\\Yasuo-int-analyzer\\src\\Yasuo\\Main\\analysis.h",
               "RelativeDocumentMoniker": "Main\\analysis.h",
