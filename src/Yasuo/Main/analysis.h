@@ -1,11 +1,14 @@
 #pragma once
-
 #include <vector>
+#include <string>
+
 #include "player.h"
-using namespace std;
 
-int intCalc(const PlayerData& p);
 
-void calculateScores(vector<PlayerScore>& players);
+int intCalc(const MatchData& matches);
 
-void sortByScore(vector<PlayerScore>& players);
+void calculateScores(std::vector<MatchData>& matches);
+
+void sortByScore(std::vector<MatchData>& matches);
+
+std::string playerClassification(int score);

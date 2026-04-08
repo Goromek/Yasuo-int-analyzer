@@ -124,12 +124,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="analysis.cpp" />
+    <ClCompile Include="datareader.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="output.cpp" />
     <ClCompile Include="player.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="analysis.h" />
+    <ClInclude Include="datareader.h" />
     <ClInclude Include="output.h" />
     <ClInclude Include="player.h" />
   </ItemGroup>

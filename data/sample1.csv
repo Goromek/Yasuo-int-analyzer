@@ -1,3 +1,4 @@
-kills,deaths,assists,goldDiff15,visionScore,damageShare
-3,9,2,-2500,7,12
-10,2,5,1500,18,28
+playerName,playerTag,kills,deaths,assists,goldDiff15,visionScore,damageScore
+YasuoMain,EUNE,5,10,3,-1200,8,14
+YasuoMain,EUNE,2,8,4,-900,10,17
+WindWallGod,EUW,7,2,6,300,20,25

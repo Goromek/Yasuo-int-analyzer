@@ -1,55 +1,49 @@
-#include "output.h"
 #include <iostream>
 
-using namespace std;
+#include "analysis.h"
+#include "output.h"
 
-void printPlayers(const vector<PlayerScore>& players)
+void printPlayers(const std::vector<MatchData>&matches)
 {
-    cout << "Loaded players in database: " << players.size() << endl;
+    std::cout << "Loaded matches in database: " << matches.size() << std::endl;
 
-    int cerifiedInters=0;
+    
     int totalScore = 0;
 
-    for (size_t i = 0; i < players.size(); i++)
+    for (size_t i = 0; i < matches.size(); i++)
     {
-        const auto& p = players[i];
+        const auto& p = matches[i];
 
-        cout << "Player #" << i + 1 << endl;
-        cout << p.data.kills << " "
-            << p.data.deaths << " "
-            << p.data.assists << " "
-            << p.data.goldDiff15 << " "
-            << p.data.visionScore << " "
-            << p.data.damageScore << endl;
+        std::cout << "Match #" << i + 1 << std::endl;
+        std::cout << "By player: " << p.playerName << "#" << p.playerTag << std::endl;
+        std::cout << p.kills << " "
+            << p.deaths << " "
+            << p.assists << " "
+            << p.goldDiff15 << " "
+            << p.visionScore << " "
+            << p.damageScore << std::endl;
 
-        cout << "Score: " << p.score << endl;
-        totalScore += p.score;
+        std::cout << "Score: " << p.intScore << std::endl;
+        totalScore += p.intScore;
 
-        if (p.score >= 10){
-            cout << "Certified inter\n";
-            cerifiedInters++;
-        }
-        else if (p.score >= 5)
-            cout << "Suspicious\n";
-        else
-            cout << "Playable\n";
+        std::cout << playerClassification(p.intScore) << std::endl;
 
-        cout << endl;
+        std::cout << std::endl;
     }
-    cout << "Certified inters in database: " << cerifiedInters << endl;
-    cout << "Averge int score in database is equal to: " << double(totalScore) / players.size() << endl;
+
+    std::cout << "Averge int score in database is equal to: " << double(totalScore) / matches.size() << std::endl;
 
 }
 
-void printTopPlayers(const vector<PlayerScore>& players, size_t count)
+void printTopPlayers(const std::vector<MatchData>& matches, size_t count)
 {
-    cout << "Top " << count << " inters:\n";
+    std::cout << "Top " << count << " inters:\n";
 
-    for (size_t i = 0; i < count && i < players.size(); i++)
+    for (size_t i = 0; i < count && i < matches.size(); i++)
     {
-        cout << "#" << i + 1
-            << " Score: " << players[i].score
-            << " KDA: " << players[i].data.kda()
-            << endl;
+        std::cout << "#" << i + 1
+            << " Score: " << matches[i].intScore
+            << " KDA: " << matches[i].kda()
+            << std::endl;
     }
 }
